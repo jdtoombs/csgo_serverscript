@@ -42,17 +42,15 @@ public int Menu_Callback(Menu menu, MenuAction action, int client, int p2) {
 		case MenuAction_Select:
 		{
 			char item[32];
-			PrintToServer("here");
 			menu.GetItem(p2, item, sizeof(item));
-			PrintToServer("here1");
 			
 			if (StrEqual(item, "ak47")) {
-				
-				PrintToServer("here2");
-				GivePlayerItem(client, "ak47");
+				GivePlayerItem(client, "weapon_ak47");
 			}
 			else if (StrEqual(item, "m4")) {
-				//give m4a1
+				GivePlayerItem(client, "weapon_m4a1");
+			}else if(StrEqual(item, "awp")){
+				//give awp
 			}
 			
 		}
