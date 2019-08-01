@@ -35,10 +35,9 @@ public Action Command_Test(int client, int args) {
 	menu.Display(client, 30);
 	return Plugin_Handled;
 }
+		
 
-
-
-public int Menu_Callback(Menu menu, MenuAction action, int p1, int p2) {
+public int Menu_Callback(Menu menu, MenuAction action, int client, int p2) {
 	switch (action) {
 		case MenuAction_Select:
 		{
@@ -46,7 +45,7 @@ public int Menu_Callback(Menu menu, MenuAction action, int p1, int p2) {
 			menu.GetItem(p2, item, sizeof(item));
 			
 			if (StrEqual(item, "ak47")) {
-				//give client ak47
+				
 				GivePlayerItem(client, "weapon_ak47");
 			}
 			else if (StrEqual(item, "m4")) {
