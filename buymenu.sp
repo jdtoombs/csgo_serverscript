@@ -8,7 +8,7 @@
 public Plugin myinfo = 
 {
 	name = "Choose Gun Menu for FFA", 
-	author = "jdtoombs", 
+	author = "jdtoombs/derekbell", 
 	description = "Type !guns in chat to choose from variety of permitted guns", 
 	version = "1.0.0", 
 	url = ""
