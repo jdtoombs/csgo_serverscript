@@ -38,7 +38,7 @@ public Action Command_Test(int client, int args) {
 
 
 
-public int Menu_Callback(Menu menu, MenuAction action, int p1, int p2, int client) {
+public int Menu_Callback(Menu menu, MenuAction action, int p1, int p2) {
 	switch (action) {
 		case MenuAction_Select:
 		{
@@ -47,7 +47,7 @@ public int Menu_Callback(Menu menu, MenuAction action, int p1, int p2, int clien
 			
 			if (StrEqual(item, "ak47")) {
 				//give client ak47
-				GivePlayerItem(client, weapon_ak47);
+				GivePlayerItem(client, "weapon_ak47");
 			}
 			else if (StrEqual(item, "m4")) {
 				//give m4a1
