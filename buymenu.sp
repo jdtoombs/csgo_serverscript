@@ -3,14 +3,14 @@
 #include <cstrike>
 
 #pragma semicolon 1
-#pragma newdecls required 
+#pragma newdecls required
 
-public Plugin myinfo = 
+public Plugin myinfo =
 {
-	name = "Choose Gun Menu for FFA", 
-	author = "jdtoombs/derekbell", 
-	description = "Type !guns in chat to choose from variety of permitted guns", 
-	version = "1.0.0", 
+	name = "Choose Gun Menu for FFA",
+	author = "jdtoombs/derekbell",
+	description = "Type !guns in chat to choose from variety of permitted guns",
+	version = "1.0.0",
 	url = ""
 };
 
@@ -30,12 +30,12 @@ public Action Command_Test(int client, int args) {
 	menu.AddItem("ssg", "SSG");
 	menu.AddItem("awp", "AWP");
 	menu.AddItem("AUG", "AUG");
-	
+
 	//who we are displaying it to, and the time it takes to time out
 	menu.Display(client, 30);
 	return Plugin_Handled;
 }
-		
+
 
 public int Menu_Callback(Menu menu, MenuAction action, int client, int p2) {
 	switch (action) {
@@ -43,22 +43,21 @@ public int Menu_Callback(Menu menu, MenuAction action, int client, int p2) {
 		{
 			char item[32];
 			menu.GetItem(p2, item, sizeof(item));
-			
+
 			if (StrEqual(item, "ak47")) {
 				GivePlayerItem(client, "weapon_ak47");
 			}
 			else if (StrEqual(item, "m4")) {
 				GivePlayerItem(client, "weapon_m4a1");
-			}else if(StrEqual(item, "awp")){
-				//give awp
+			}else if(StrEqual(item, "awp"))
+
 			}
-			
 		}
 		case MenuAction_End:
 		{
 			//must do it ourselves or mem leak
 			delete menu;
 		}
-		
+
 	}
-} 
+}
