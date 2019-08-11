@@ -89,6 +89,10 @@ void GivePlayerWeapon(int client, char[] item)
 	{
 		GivePlayerItem(client, "weapon_m4a1");
 	}
+	else if (StrEqual(item, "ssg"))
+	{
+		GivePlayerItem(client, "weapon_ssg");
+	}
 	else if (StrEqual(item, "awp"))
 	{
 		GivePlayerItem(client, "weapon_awp");
