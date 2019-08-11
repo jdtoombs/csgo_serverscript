@@ -1,3 +1,11 @@
+#define PLUGIN_NAME "Choose Gun Menu for FFA"
+#define PLUGIN_AUTHOR "jdtoombs/derekbell/nollidnosnhoj"
+#define PLUGIN_DESCRIPTION "Type !guns in chat to choose from variety of permitted guns"
+#define PLUGIN_VERSION "1.0.0"
+#define PLUGIN_URL ""
+
+#define PLUGIN_CMD "sm_test"
+
 #include <sourcemod>
 #include <sdktools_functions>
 #include <cstrike>
@@ -5,19 +13,32 @@
 #pragma semicolon 1
 #pragma newdecls required
 
+// VARIABLES
+
+EngineVersion g_Game;
+
+// PLUGIN INFORMATION
+
 public Plugin myinfo =
 {
-	name = "Choose Gun Menu for FFA",
-	author = "jdtoombs/derekbell/nollidnosnhoj",
-	description = "Type !guns in chat to choose from variety of permitted guns",
-	version = "1.0.0",
-	url = ""
+	name = PLUGIN_NAME,
+	author = PLUGIN_AUTHOR,
+	description = PLUGIN_DESCRIPTION,
+	version = PLUGIN_VERSION,
+	url = PLUGIN_URL
 };
 
 public void OnPluginStart() {
+	// Check if game is CS:GO
+	g_Game = GetEngineVersion();
+	if (g_Game != Engine_CSGO)
+	{
+		SetFailState("This plugin is for CSGO Only");
+	}
+	
 	//**loose indentation occurs when mixmatching tab/space**
 	PrintToServer("Is this working?");
-	RegConsoleCmd("sm_test", Command_Test, "Displays a test menu");
+	RegConsoleCmd(PLUGIN_CMD, Command_Test, "Displays a test menu");
 }
 
 public Action Command_Test(int client, int args) {
